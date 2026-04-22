@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nrithyalaya Dance Temple | Bharatanatyam Classes in Sydney</title>
+<meta name="description" content="Nrithyalaya Dance Temple — Bharatanatyam classes in Sydney for ages 2–60. In-person and online. Taught by Vidwat-certified teacher Sindhu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-deep: #0A6979;
+    --teal-mid: #0d7a8c;
+    --teal-light: #0CC0DF;
+    --gold: #AEA68F;
+    --gold-light: #c9c0a8;
+    --gold-dark: #8a7e6a;
+    --cream: #FAF7F2;
+    --cream-warm: #F2EDE4;
+    --charcoal: #1a1a1a;
+    --charcoal-soft: #2d2d2d;
+    --text-muted: #6b6b6b;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--teal-deep); border-radius: 2px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+  nav.scrolled {
+    background: rgba(250,247,242,0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 24px rgba(10,105,121,0.08);
+    padding: 0.9rem 3rem;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.7rem;
+    text-decoration: none;
+  }
+  .nav-logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+    line-height: 1;
+  }
+  .nav-logo-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 1px;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -3px; left: 0; right: 0;
+    height: 1px; background: var(--teal-deep);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--teal-deep); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-enrol {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--teal-deep);
+    padding: 0.65rem 1.6rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-enrol:hover { background: var(--teal-mid); transform: translateY(-1px); }
+
+  /* mobile hamburger */
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-toggle span { width: 24px; height: 1.5px; background: var(--charcoal); transition: all 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #062f37 0%, #0A6979 45%, #0d8fa6 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  /* Temple silhouette SVG background */
+  .hero-bg-temple {
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 100%; max-width: 900px; opacity: 0.06;
+    pointer-events: none;
+  }
+
+  /* Decorative circles */
+  .hero-circle-1 {
+    position: absolute; top: -120px; right: -120px;
+    width: 500px; height: 500px; border-radius: 50%;
+    border: 1px solid rgba(174,166,143,0.2);
+    pointer-events: none;
+  }
+  .hero-circle-2 {
+    position: absolute; top: -60px; right: -60px;
+    width: 350px; height: 350px; border-radius: 50%;
+    border: 1px solid rgba(174,166,143,0.15);
+    pointer-events: none;
+  }
+  .hero-circle-3 {
+    position: absolute; bottom: -80px; left: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    border: 1px solid rgba(12,192,223,0.12);
+    pointer-events: none;
+  }
+
+  .hero-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; opacity: 0.4;
+  }
+
+  .hero-content {
+    text-align: center; z-index: 2; padding: 2rem;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .hero-logo-temple {
+    width: 80px; margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 0.95;
+    opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 0.6rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-divider {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 2.5rem 0;
+    opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+  .hero-divider-line { flex: 1; max-width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
+  .hero-divider-line.right { background: linear-gradient(to left, transparent, var(--gold)); }
+  .hero-divider-ornament { color: var(--gold); font-size: 1.2rem; }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    max-width: 520px;
+    line-height: 1.6;
+    opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 1.2rem; margin-top: 2.8rem; flex-wrap: wrap; justify-content: center;
+    opacity: 0; animation: fadeUp 0.8s ease 1s forwards;
+  }
+  .btn-primary {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal); background: var(--gold);
+    padding: 0.9rem 2.2rem; border-radius: 2px;
+    text-decoration: none; transition: all 0.3s;
+    border: 1px solid var(--gold);
+  }
+  .btn-primary:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
+  .btn-outline {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--white); background: transparent;
+    padding: 0.9rem 2.2rem; border-radius: 2px;
+    text-decoration: none; transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    opacity: 0; animation: fadeIn 1s ease 1.4s forwards;
+  }
+  .hero-scroll span {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 7rem 3rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem; font-weight: 400;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold-dark);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block;
+    width: 30px; height: 1px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: var(--teal-deep);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold-dark); }
+
+  .section-body {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem; font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.9;
+    max-width: 600px;
+  }
+
+  /* ─── ORNAMENTAL DIVIDER ─── */
+  .ornament-divider {
+    text-align: center; padding: 2rem 0;
+    color: var(--gold);
+    letter-spacing: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+
+  /* ─── BHRA TA NATYAM SECTION ─── */
+  #bharatanatyam {
+    background: var(--cream);
+  }
+
+  .bhara-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .bhara-pills {
+    display: flex; gap: 0.8rem; flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .bhara-pill {
+    background: var(--teal-deep);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 1.05rem; font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 0.7rem 1.4rem;
+    border-radius: 40px;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.1rem;
+  }
+  .bhara-pill span {
+    font-size: 0.55rem; font-weight: 300;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .dance-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--teal-deep);
+    margin-top: 1rem;
+    line-height: 1.3;
+  }
+
+  .bhara-visual {
+    position: relative;
+    display: flex; flex-direction: column; gap: 1.2rem;
+  }
+
+  .bhara-meaning-card {
+    background: var(--white);
+    border-left: 3px solid var(--teal-deep);
+    padding: 1.2rem 1.6rem;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 20px rgba(10,105,121,0.06);
+    display: flex; align-items: center; gap: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .bhara-meaning-card:hover { transform: translateX(6px); box-shadow: 0 4px 30px rgba(10,105,121,0.12); }
+
+  .bhara-meaning-card .syl {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 500;
+    color: var(--teal-deep);
+    min-width: 60px; text-align: center;
+    line-height: 1;
+  }
+  .bhara-meaning-card .meanings { display: flex; flex-direction: column; gap: 0.1rem; }
+  .bhara-meaning-card .meaning-word {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem; font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.05em;
+  }
+  .bhara-meaning-card .meaning-alt {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem; font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* ─── HISTORY BANNER ─── */
+  #history {
+    background: linear-gradient(135deg, #062f37 0%, #0A6979 100%);
+    padding: 5rem 3rem;
+    position: relative; overflow: hidden;
+  }
+  #history::before {
+    content: '6th–9th';
+    position: absolute; right: -1rem; top: -2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(6rem, 15vw, 14rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none; line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .history-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+
+  .history-stat {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .history-stat-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem; font-weight: 300;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0.5rem;
+  }
+
+  .history-text .section-eyebrow { color: var(--gold-light); }
+  .history-text .section-eyebrow::before { background: var(--gold-light); }
+  .history-text .section-title { color: var(--white); }
+  .history-text .section-body { color: rgba(255,255,255,0.65); }
+
+  /* ─── BENEFITS ─── */
+  #benefits { background: var(--cream-warm); }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .benefit-card {
+    background: var(--white);
+    padding: 2rem 1.8rem;
+    border-radius: 4px;
+    border-top: 2px solid transparent;
+    box-shadow: 0 2px 16px rgba(10,105,121,0.05);
+    transition: all 0.35s ease;
+    position: relative; overflow: hidden;
+  }
+  .benefit-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(10,105,121,0.03) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .benefit-card:hover {
+    border-top-color: var(--teal-deep);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(10,105,121,0.12);
+  }
+  .benefit-card:hover::after { opacity: 1; }
+
+  .benefit-icon {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal-mid));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .benefit-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.92rem; font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem; font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ─── TEACHER ─── */
+  #teacher { background: var(--cream); }
+
+  .teacher-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: center;
+    margin-top: 2rem;
+  }
+
+  .teacher-visual {
+    position: relative;
+  }
+
+  .teacher-visual-inner {
+    background: linear-gradient(160deg, #0A6979, #062f37);
+    border-radius: 6px;
+    aspect-ratio: 3/4;
+    display: flex; align-items: flex-end; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+
+  /* Decorative mandala pattern in the box */
+  .teacher-visual-inner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-conic-gradient(rgba(174,166,143,0.06) 0deg, transparent 1deg, transparent 29deg, rgba(174,166,143,0.06) 30deg);
+    background-size: 60px 60px;
+  }
+
+  .teacher-visual-text {
+    position: relative; z-index: 2;
+    padding: 2.5rem; text-align: center;
+  }
+
+  .teacher-name-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem; font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    display: block;
+  }
+  .teacher-name-sub-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem; font-weight: 500;
+    color: var(--gold-light);
+    line-height: 1.2;
+    display: block;
+    margin-top: 0.3rem;
+  }
+  .teacher-credential {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem; font-weight: 300;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.8rem;
+  }
+
+  .teacher-frame-accent {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 12px; left: 12px;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    z-index: -1; opacity: 0.4;
+  }
+
+  .teacher-content .section-body { margin-bottom: 2rem; }
+
+  .teacher-tags {
+    display: flex; gap: 0.7rem; flex-wrap: wrap;
+    margin-top: 1.8rem;
+  }
+  .teacher-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--teal-deep);
+    border: 1px solid var(--teal-deep);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+  }
+
+  /* ─── CLASSES ─── */
+  #classes { background: var(--cream-warm); }
+
+  .classes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .class-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(10,105,121,0.06);
+    transition: all 0.35s;
+  }
+  .class-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(10,105,121,0.13); }
+
+  .class-card-header {
+    padding: 2.5rem 2.5rem 2rem;
+    background: linear-gradient(135deg, var(--teal-deep), #0d8fa6);
+    position: relative; overflow: hidden;
+  }
+  .class-card-header::before {
+    content: '';
+    position: absolute; top: -30px; right: -30px;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .class-type {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+  .class-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 400;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .class-card-body { padding: 2rem 2.5rem 2.5rem; }
+
+  .class-feature {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--cream-warm);
+  }
+  .class-feature:last-child { border-bottom: none; }
+  .class-feature-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal-deep); flex-shrink: 0; margin-top: 0.45rem;
+  }
+  .class-feature p {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.88rem; font-weight: 300;
+    color: var(--charcoal-soft);
+    line-height: 1.5;
+  }
+  .class-feature p strong { font-weight: 500; }
+
+  /* ─── SINGLE CLASS CARD ─── */
+  .classes-single { margin-top: 3.5rem; }
+  .class-card-full { background: var(--white); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 40px rgba(10,105,121,0.1); }
+  .class-card-full-header { padding: 3rem 3.5rem; background: linear-gradient(135deg, #062f37 0%, #0A6979 60%, #0d8fa6 100%); display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; position: relative; overflow: hidden; }
+  .class-card-full-header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,0.05); pointer-events: none; }
+  .class-stats { display: flex; gap: 3rem; }
+  .class-stat { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--gold-light); line-height: 1; }
+  .stat-label { font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .class-card-full-body { padding: 2.5rem 3.5rem; }
+  .class-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem; }
+  @media (max-width: 700px) { .class-card-full-header { padding: 2rem 1.8rem; } .class-card-full-body { padding: 2rem 1.8rem; } .class-feature-grid { grid-template-columns: 1fr; } .class-stats { gap: 1.5rem; } }
+
+  /* ─── ENROL CTA ─── */
+  #enrol {
+    background: var(--teal-deep);
+    padding: 7rem 3rem;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  #enrol::before {
+    content: '';
+    position: absolute; top: -50%; left: -20%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(12,192,223,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #enrol::after {
+    content: '';
+    position: absolute; bottom: -50%; right: -20%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(174,166,143,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .enrol-content { position: relative; z-index: 1; }
+
+  .enrol-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600; color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .enrol-copy {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-style: italic; font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 480px; margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .enrol-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-enrol {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal-deep); background: var(--white);
+    padding: 1rem 2.5rem; border-radius: 2px;
+    text-decoration: none; transition: all 0.3s;
+  }
+  .btn-enrol:hover { background: var(--cream); transform: translateY(-2px); }
+  .btn-enrol-ghost {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--white); background: transparent;
+    padding: 1rem 2.5rem; border-radius: 2px;
+    text-decoration: none; transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+  .btn-enrol-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #062f37;
+    padding: 4rem 3rem 2.5rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.3rem;
+  }
+  .footer-brand-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .footer-brand-copy {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem; font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7; max-width: 280px;
+  }
+  .footer-col-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.84rem; font-weight: 300;
+    color: rgba(255,255,255,0.45); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1100px; margin: 2rem auto 0;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-bottom p {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; font-weight: 300;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1.1rem 1.5rem; }
+    nav.scrolled { padding: 0.8rem 1.5rem; }
+    .nav-links, .nav-enrol { display: none; }
+    .nav-toggle { display: flex; }
+    section { padding: 5rem 1.5rem; }
+    .bhara-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .history-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .teacher-layout { grid-template-columns: 1fr; }
+    .teacher-visual { max-width: 320px; }
+    .classes-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none;
+    position: fixed; inset: 0; z-index: 90;
+    background: var(--cream);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300;
+    color: var(--charcoal); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--teal-deep); }
+  .mobile-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.5rem; color: var(--charcoal);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="20" width="28" height="10" rx="1" fill="#0A6979" opacity="0.9"/>
+      <rect x="6" y="14" width="20" height="7" rx="1" fill="#0A6979"/>
+      <rect x="10" y="9" width="12" height="6" rx="1" fill="#0A6979"/>
+      <rect x="13" y="5" width="6" height="5" rx="1" fill="#0A6979"/>
+      <rect x="15" y="1" width="2" height="5" rx="1" fill="#AEA68F"/>
+      <circle cx="16" cy="1" r="1.5" fill="#AEA68F"/>
+    </svg>
+    <div>
+      <span class="nav-logo-text">Nrithyalaya</span>
+      <span class="nav-logo-sub">Dance Temple</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#bharatanatyam">The Art</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#teacher">Our Guru</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+  <a href="#enrol" class="nav-enrol">Enrol Now</a>
+  <div class="nav-toggle" id="navToggle" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#bharatanatyam" onclick="closeMobileMenu()">The Art</a>
+  <a href="#benefits" onclick="closeMobileMenu()">Benefits</a>
+  <a href="#teacher" onclick="closeMobileMenu()">Our Guru</a>
+  <a href="#classes" onclick="closeMobileMenu()">Classes</a>
+  <a href="#enrol" onclick="closeMobileMenu()">Enrol Now</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-circle-3"></div>
+  <div class="hero-grain"></div>
+
+  <!-- Temple silhouette -->
+  <svg class="hero-bg-temple" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" fill="white">
+    <rect x="50" y="380" width="800" height="120" rx="2"/>
+    <rect x="120" y="300" width="660" height="90" rx="2"/>
+    <rect x="200" y="230" width="500" height="80" rx="2"/>
+    <rect x="300" y="170" width="300" height="70" rx="2"/>
+    <rect x="360" y="120" width="180" height="60" rx="2"/>
+    <rect x="400" y="80" width="100" height="50" rx="2"/>
+    <rect x="430" y="40" width="40" height="50" rx="2"/>
+    <rect x="445" y="10" width="10" height="35" rx="2"/>
+    <circle cx="450" cy="10" r="8"/>
+    <!-- arch doors -->
+    <rect x="410" y="330" width="80" height="60" rx="40 40 0 0" fill="#062f37" opacity="0.5"/>
+    <rect x="700" y="340" width="60" height="50" rx="30 30 0 0" fill="#062f37" opacity="0.3"/>
+    <rect x="140" y="340" width="60" height="50" rx="30 30 0 0" fill="#062f37" opacity="0.3"/>
+  </svg>
+
+  <div class="hero-content">
+    <!-- Mini temple icon -->
+    <svg class="hero-logo-temple" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="70" width="70" height="18" rx="2" fill="rgba(174,166,143,0.7)"/>
+      <rect x="12" y="55" width="56" height="18" rx="2" fill="rgba(174,166,143,0.7)"/>
+      <rect x="20" y="42" width="40" height="15" rx="2" fill="rgba(174,166,143,0.7)"/>
+      <rect x="28" y="30" width="24" height="14" rx="2" fill="rgba(174,166,143,0.7)"/>
+      <rect x="33" y="18" width="14" height="14" rx="2" fill="rgba(174,166,143,0.7)"/>
+      <rect x="38" y="6" width="4" height="14" rx="2" fill="rgba(174,166,143,0.9)"/>
+      <circle cx="40" cy="5" r="4" fill="rgba(174,166,143,1)"/>
+      <rect x="30" y="58" width="20" height="18" rx="10 10 0 0" fill="rgba(6,47,55,0.4)"/>
+    </svg>
+
+    <h1 class="hero-script">Nrithyalaya</h1>
+    <p class="hero-subtitle">Dance Temple · Sydney · Est. 2014</p>
+
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <span class="hero-divider-ornament">✦</span>
+      <div class="hero-divider-line right"></div>
+    </div>
+
+    <p class="hero-tagline">
+      Where ancient movement meets modern life — Bharatanatyam classes for all ages, taught with devotion and tradition.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#enrol" class="btn-primary">Begin Your Journey</a>
+      <a href="#bharatanatyam" class="btn-outline">Discover the Art</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── BHARATANATYAM ── -->
+<section id="bharatanatyam">
+  <div class="container">
+    <div class="bhara-grid">
+      <div>
+        <p class="section-eyebrow reveal">The Ancient Art</p>
+        <h2 class="section-title reveal reveal-delay-1">The dance of<br><em>Expression, Tune & Beat</em></h2>
+        <p class="section-body reveal reveal-delay-2">
+          Bharatanatyam, the oldest dance form in India, originated in the temples of Tamil Nadu. 
+          Its universal appeal lies in precise body posture, intricate hand gestures, captivating 
+          eye motions, energetic footwork, spiritual music, and vibrant costumes.
+        </p>
+
+        <div class="bhara-pills reveal reveal-delay-3">
+          <div class="bhara-pill">BHA <span>Bhavam</span> <span>Expression</span></div>
+          <div class="bhara-pill">RA <span>Ragam</span> <span>Tune</span></div>
+          <div class="bhara-pill">TA <span>Talam</span> <span>Beat</span></div>
+          <div class="bhara-pill" style="background: var(--gold-dark);">NATYAM <span>Dance</span></div>
+        </div>
+
+        <p class="dance-word reveal reveal-delay-4">
+          "The most complete<br>classical art form"
+        </p>
+      </div>
+
+      <div class="bhara-visual">
+        <div class="bhara-meaning-card reveal">
+          <div class="syl">BHA</div>
+          <div class="meanings">
+            <span class="meaning-word">Bhavam — Expression</span>
+            <span class="meaning-alt">The emotional storytelling of the soul</span>
+          </div>
+        </div>
+        <div class="bhara-meaning-card reveal reveal-delay-1">
+          <div class="syl">RA</div>
+          <div class="meanings">
+            <span class="meaning-word">Ragam — Tune</span>
+            <span class="meaning-alt">The melodic foundation that carries meaning</span>
+          </div>
+        </div>
+        <div class="bhara-meaning-card reveal reveal-delay-2">
+          <div class="syl">TA</div>
+          <div class="meanings">
+            <span class="meaning-word">Talam — Beat</span>
+            <span class="meaning-alt">The rhythmic pulse that drives the dance</span>
+          </div>
+        </div>
+        <div class="bhara-meaning-card reveal reveal-delay-3" style="border-left-color: var(--gold-dark);">
+          <div class="syl" style="color: var(--gold-dark);">नाट्यम्</div>
+          <div class="meanings">
+            <span class="meaning-word">Natyam — Dance</span>
+            <span class="meaning-alt">The union of body, mind and spirit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HISTORY BANNER ── -->
+<div id="history">
+  <div class="history-inner">
+    <div class="reveal">
+      <div class="history-stat">2nd<br>Century</div>
+      <div class="history-stat-label">CE — Origins of Bharatanatyam</div>
+    </div>
+    <div class="history-text">
+      <p class="section-eyebrow reveal">A Living Heritage</p>
+      <h2 class="section-title reveal reveal-delay-1">India's oldest<br>dance tradition</h2>
+      <p class="section-body reveal reveal-delay-2">
+        First documented in the Natya Shastra by Sage Bharat Muni, evidence of this sacred art 
+        form dates to sculptures and paintings from the 6th to 9th centuries CE. For over two 
+        millennia, Bharatanatyam has preserved India's stories, devotion, and culture through movement.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── BENEFITS ── -->
+<section id="benefits">
+  <div class="container">
+    <p class="section-eyebrow reveal">Why Learn?</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      The gifts that<br><em>Bharatanatyam bestows</em>
+    </h2>
+
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🧘</div>
+        <div class="benefit-title">Instils Discipline</div>
+        <div class="benefit-desc">Structured learning builds focus, commitment and respect for tradition.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-1">
+        <div class="benefit-icon">🧠</div>
+        <div class="benefit-title">Increases Focus</div>
+        <div class="benefit-desc">Coordinating music, movement and expression sharpens the mind.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <div class="benefit-icon">🏛️</div>
+        <div class="benefit-title">Improves Posture</div>
+        <div class="benefit-desc">Araimundi and aligned stances strengthen and lengthen the spine.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-3">
+        <div class="benefit-icon">💪</div>
+        <div class="benefit-title">Builds Strength & Stamina</div>
+        <div class="benefit-desc">Jathis are equivalent to a cardio workout. Dancers perform 8–10 minute pieces, building impressive endurance.</div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">⚖️</div>
+        <div class="benefit-title">Enhances Balance</div>
+        <div class="benefit-desc">Infinite poses challenge physical and mental equilibrium in equal measure.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-1">
+        <div class="benefit-icon">🌟</div>
+        <div class="benefit-title">Boosts Confidence</div>
+        <div class="benefit-desc">Performing builds self-esteem. Particularly powerful for quieter, introverted children.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <div class="benefit-icon">👁️</div>
+        <div class="benefit-title">Good Eye Exercise</div>
+        <div class="benefit-desc">Drishti Bheda movements strengthen eye muscles through directed, expressive motion.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-3">
+        <div class="benefit-icon">🌏</div>
+        <div class="benefit-title">Cultural Identity</div>
+        <div class="benefit-desc">A living bridge to Indian heritage, mythology and language — essential for diaspora families.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEACHER ── -->
+<section id="teacher">
+  <div class="container">
+    <div class="teacher-layout">
+      <div class="teacher-visual reveal">
+        <div class="teacher-visual-inner">
+          <div class="teacher-visual-text">
+            <span class="teacher-name-script">Sindhu</span>
+            <span class="teacher-name-sub-script">Surendrababu</span>
+            <div class="teacher-credential">Vidwat Certified · Bharatanatyam</div>
+          </div>
+        </div>
+        <div class="teacher-frame-accent"></div>
+      </div>
+
+      <div class="teacher-content">
+        <p class="section-eyebrow reveal">Your Guru</p>
+        <h2 class="section-title reveal reveal-delay-1">A life devoted<br>to <em>the sacred dance</em></h2>
+        <p class="section-body reveal reveal-delay-2">
+          Vidhushi Sindhumanognya Surendrababu is a distinguished Vidwat-certified Bharatanatyam teacher 
+          and the founder of Nrithyalaya Dance Temple. With 15 years of rigorous training in 
+          the Pandanallur and Melattur styles under the guidance of Guru Parvati Vidhyanathan, 
+          she teaches the Pandanallur bani — bringing its classical precision and spiritual depth to Sydney.
+        </p>
+        <p class="section-body reveal reveal-delay-3" style="margin-top: 1rem;">
+          Based in Marsden Park, NSW, Sindhu has passionately taught Bharatanatyam in Sydney 
+          for over a decade, offering in-person classes for students aged 2 to 60. Her teaching philosophy 
+          blends technical precision with warmth, making classical dance accessible to all.
+        </p>
+
+        <div class="teacher-tags reveal reveal-delay-4">
+          <span class="teacher-tag">Vidhushi</span>
+          <span class="teacher-tag">Vidwat Certified</span>
+          <span class="teacher-tag">Pandanallur Style</span>
+          <span class="teacher-tag">15+ Years Training</span>
+          <span class="teacher-tag">Ages 2–60</span>
+          <span class="teacher-tag">Marsden Park, NSW</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLASSES ── -->
+<section id="classes">
+  <div class="container">
+    <p class="section-eyebrow reveal">Join a Class</p>
+    <h2 class="section-title reveal reveal-delay-1">Choose how you<br><em>begin your journey</em></h2>
+
+    <div class="classes-single reveal">
+      <div class="class-card-full">
+        <div class="class-card-full-header">
+          <div>
+            <div class="class-type" style="color: var(--gold-light); font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; margin-bottom:0.4rem;">In-Person · Sydney, NSW</div>
+            <div class="class-name" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:400; color:var(--white); line-height:1.1;">Bharatanatyam Classes</div>
+            <p style="font-family:'Jost',sans-serif; font-size:0.9rem; font-weight:300; color:rgba(255,255,255,0.7); margin-top:1rem; line-height:1.7; max-width:480px;">Authentic Bharatanatyam training in an intimate studio environment. All levels, all ages — taught with tradition, precision and joy.</p>
+          </div>
+          <div class="class-stats">
+            <div class="class-stat"><span class="stat-num">2–60</span><span class="stat-label">Age Range</span></div>
+            <div class="class-stat"><span class="stat-num">All</span><span class="stat-label">Skill Levels</span></div>
+            <div class="class-stat"><span class="stat-num">10+</span><span class="stat-label">Years in Sydney</span></div>
+          </div>
+        </div>
+        <div class="class-card-full-body">
+          <div class="class-feature-grid">
+            <div class="class-feature">
+              <div class="class-feature-dot"></div>
+              <p><strong>All ages welcome</strong> — structured classes from toddlers (age 2) through to adults</p>
+            </div>
+            <div class="class-feature">
+              <div class="class-feature-dot"></div>
+              <p>Hands-on correction, personalised attention and true cultural immersion</p>
+            </div>
+            <div class="class-feature">
+              <div class="class-feature-dot"></div>
+              <p>Beginner through to advanced — <strong>no prior dance experience needed</strong></p>
+            </div>
+            <div class="class-feature">
+              <div class="class-feature-dot"></div>
+              <p>Regular student performances, recitals and Arangetram (graduation debut)</p>
+            </div>
+            <div class="class-feature">
+              <div class="class-feature-dot"></div>
+              <p>Pandanallur and Melattur styles — two of Bharatanatyam's finest traditions</p>
+            </div>
+            <div class="class-feature">
+              <div class="class-feature-dot"></div>
+              <p>Located in <strong>Marsden Park, NSW</strong> — contact us for current schedule</p>
+            </div>
+          </div>
+          <div style="margin-top:2rem; padding-top:2rem; border-top:1px solid var(--cream-warm); display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="#enrol" class="btn-primary" style="font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--white); background:var(--teal-deep); padding:0.85rem 2rem; border-radius:2px; text-decoration:none;">Enquire Now</a>
+            <a href="gallery.html" class="btn-outline" style="font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal-deep); background:transparent; padding:0.85rem 2rem; border-radius:2px; text-decoration:none; border:1px solid var(--teal-deep);">See Student Performances →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ENROL CTA ── -->
+<section id="enrol">
+  <div class="enrol-content">
+    <div class="enrol-script reveal">Begin Your Journey Today</div>
+    <p class="enrol-copy reveal reveal-delay-1">
+      Whether you're 2 or 60, a complete beginner or a returning dancer — Nrithyalaya welcomes you.
+    </p>
+    <div class="enrol-actions reveal reveal-delay-2">
+      <a href="mailto:info@nrithyalaya.com" class="btn-enrol">Get in Touch</a>
+      <a href="https://wa.me/61XXXXXXXXX" target="_blank" class="btn-enrol-ghost">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Nrithyalaya</div>
+      <div class="footer-brand-sub">Dance Temple</div>
+      <p class="footer-brand-copy">
+        Spreading Indian culture through the ancient art of Bharatanatyam — one student at a time, in Sydney and around the world.
+      </p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#bharatanatyam">The Art</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#teacher">Our Guru</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#enrol">Enrol</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@nrithyalaya.com">info@nrithyalaya.com</a></li>
+        <li><a href="#">Marsden Park, NSW, Australia</a></li>
+      </ul>
+      <div style="margin-top: 1.5rem;">
+        <div class="footer-col-title">Follow & Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/nrithyalaya" target="_blank">📸 Instagram</a></li>
+          <li><a href="https://www.facebook.com/nrithyalaya" target="_blank">👥 Facebook</a></li>
+          <li><a href="https://www.youtube.com/@nrithyalaya" target="_blank">▶️ YouTube</a></li>
+          <li><a href="https://wa.me/61XXXXXXXXX" target="_blank">💬 WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Nrithyalaya Dance Temple. All rights reserved.</p>
+    <p>nrithyalaya.com</p>
+  </div>
+</footer>
+
+<script>
+  // ── Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── Mobile menu
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Smooth scroll for all anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

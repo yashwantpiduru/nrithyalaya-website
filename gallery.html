@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery & Performances | Nrithyalaya Dance Temple</title>
+<meta name="description" content="Watch Sindhu and Nrithyalaya students perform Bharatanatyam — from first steps to Arangetram.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-deep: #0A6979;
+    --teal-mid: #0d7a8c;
+    --gold: #AEA68F;
+    --gold-light: #c9c0a8;
+    --gold-dark: #8a7e6a;
+    --cream: #FAF7F2;
+    --cream-warm: #F2EDE4;
+    --charcoal: #1a1a1a;
+    --text-muted: #6b6b6b;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: var(--teal-deep); border-radius: 2px; }
+
+  /* ─── NAV (same as main) ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,247,242,0.96); backdrop-filter: blur(12px);
+    box-shadow: 0 1px 24px rgba(10,105,121,0.08);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+  .nav-logo-text { font-family: 'Dancing Script', cursive; font-size: 1.6rem; font-weight: 700; color: var(--teal-deep); line-height: 1; }
+  .nav-logo-sub { font-family: 'Jost', sans-serif; font-size: 0.55rem; font-weight: 400; letter-spacing: 0.22em; color: var(--gold-dark); text-transform: uppercase; display: block; margin-top: 1px; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--teal-deep); }
+  .nav-enrol { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); background: var(--teal-deep); padding: 0.65rem 1.6rem; border-radius: 2px; text-decoration: none; transition: all 0.3s; }
+  .nav-enrol:hover { background: var(--teal-mid); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-toggle span { width: 24px; height: 1.5px; background: var(--charcoal); }
+
+  /* ─── HERO ─── */
+  .gallery-hero {
+    padding: 9rem 3rem 5rem;
+    background: linear-gradient(160deg, #062f37 0%, #0A6979 100%);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .gallery-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-conic-gradient(rgba(174,166,143,0.04) 0deg, transparent 1deg, transparent 44deg, rgba(174,166,143,0.04) 45deg);
+    background-size: 80px 80px;
+  }
+  .gallery-hero-eyebrow {
+    font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 400;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold-light);
+    margin-bottom: 1rem; position: relative;
+  }
+  .gallery-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300;
+    color: var(--white); line-height: 1.1; position: relative;
+  }
+  .gallery-hero-title em { font-style: italic; color: var(--gold-light); }
+  .gallery-hero-sub {
+    font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 300;
+    color: rgba(255,255,255,0.6); margin-top: 1.2rem; line-height: 1.7;
+    max-width: 480px; margin-left: auto; margin-right: auto; position: relative;
+  }
+
+  /* ─── FILTER TABS ─── */
+  .filter-bar {
+    background: var(--white); border-bottom: 1px solid var(--cream-warm);
+    position: sticky; top: 72px; z-index: 50;
+    padding: 0 3rem;
+  }
+  .filter-tabs {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  }
+  .filter-tabs::-webkit-scrollbar { height: 0; }
+  .filter-tab {
+    font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text-muted); padding: 1.2rem 1.8rem;
+    border: none; background: none; cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s; white-space: nowrap;
+  }
+  .filter-tab:hover { color: var(--teal-deep); }
+  .filter-tab.active { color: var(--teal-deep); border-bottom-color: var(--teal-deep); }
+
+  /* ─── GALLERY SECTIONS ─── */
+  .gallery-section { padding: 5rem 3rem; }
+  .gallery-section:nth-child(even) { background: var(--cream-warm); }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 400;
+    letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dark);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;
+  }
+  .section-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--teal-deep); line-height: 1.2; margin-bottom: 0.8rem; }
+  .section-title em { font-style: italic; color: var(--gold-dark); }
+  .section-body { font-family: 'Jost', sans-serif; font-size: 0.92rem; font-weight: 300; color: var(--text-muted); line-height: 1.9; max-width: 560px; margin-bottom: 2.5rem; }
+
+  /* ─── MASONRY GRID ─── */
+  .masonry {
+    columns: 3; column-gap: 1.2rem;
+  }
+  .masonry-item {
+    break-inside: avoid; margin-bottom: 1.2rem;
+    position: relative; overflow: hidden; border-radius: 4px;
+    cursor: pointer; background: var(--teal-deep);
+  }
+  .masonry-item img {
+    width: 100%; display: block;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+  }
+  .masonry-item:hover img { transform: scale(1.04); }
+  .masonry-item .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(6,47,55,0.85) 0%, transparent 55%);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 1.5rem;
+  }
+  .masonry-item:hover .overlay { opacity: 1; }
+  .overlay-text { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300; color: var(--white); letter-spacing: 0.08em; }
+  .overlay-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--white); display: block; margin-bottom: 0.2rem; }
+
+  /* ─── PLACEHOLDER CARD (before real photos) ─── */
+  .photo-placeholder {
+    background: linear-gradient(135deg, var(--teal-deep) 0%, #0d8fa6 100%);
+    border-radius: 4px; overflow: hidden;
+    position: relative; cursor: pointer;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    break-inside: avoid; margin-bottom: 1.2rem;
+  }
+  .photo-placeholder:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,105,121,0.2); }
+  .photo-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-conic-gradient(rgba(255,255,255,0.04) 0deg, transparent 1deg, transparent 29deg, rgba(255,255,255,0.04) 30deg);
+    background-size: 40px 40px;
+  }
+  .placeholder-icon { font-size: 2.5rem; margin-bottom: 0.8rem; position: relative; opacity: 0.7; }
+  .placeholder-label {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400;
+    color: var(--white); position: relative; line-height: 1.3;
+  }
+  .placeholder-sub {
+    font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 300;
+    letter-spacing: 0.12em; color: rgba(255,255,255,0.55);
+    margin-top: 0.4rem; position: relative;
+  }
+  .placeholder-add {
+    margin-top: 1rem; position: relative;
+    font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.2); padding: 0.4rem 0.9rem; border-radius: 2px;
+  }
+
+  /* Gold variant placeholder */
+  .photo-placeholder.gold-variant {
+    background: linear-gradient(135deg, #7a6548 0%, #a08a60 100%);
+  }
+  .photo-placeholder.dark-variant {
+    background: linear-gradient(135deg, #062f37 0%, #0A6979 100%);
+  }
+
+  /* ─── FEATURE PHOTO SLOT ─── */
+  .feature-slot {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem;
+    align-items: stretch; margin-bottom: 3rem;
+  }
+  .feature-slot.reverse { grid-template-columns: 1fr 1.4fr; }
+  .feature-slot.reverse .feature-main { order: 2; }
+  .feature-slot.reverse .feature-info { order: 1; }
+
+  .feature-main {
+    border-radius: 6px; overflow: hidden;
+    min-height: 400px;
+  }
+  .feature-main .photo-placeholder { min-height: 400px; border-radius: 6px; }
+
+  .feature-info {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 2rem 0;
+  }
+  .feature-eyebrow {
+    font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark);
+    margin-bottom: 0.6rem;
+  }
+  .feature-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: 400; color: var(--teal-deep); line-height: 1.2; margin-bottom: 1rem;
+  }
+  .feature-title em { font-style: italic; }
+  .feature-body {
+    font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 300;
+    color: var(--text-muted); line-height: 1.85;
+  }
+
+  /* ─── LIGHTBOX ─── */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(6,47,55,0.95); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-content { max-width: 90vw; max-height: 90vh; text-align: center; }
+  .lightbox-content img { max-width: 100%; max-height: 80vh; border-radius: 4px; }
+  .lightbox-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    font-size: 2rem; color: rgba(255,255,255,0.6); cursor: pointer;
+    background: none; border: none; transition: color 0.2s;
+  }
+  .lightbox-close:hover { color: var(--white); }
+  .lightbox-caption {
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic;
+    color: rgba(255,255,255,0.55); margin-top: 1rem;
+  }
+
+  /* ─── ARANGETRAM HIGHLIGHT ─── */
+  .arangetram-banner {
+    background: linear-gradient(135deg, #062f37, #0A6979);
+    padding: 5rem 3rem; text-align: center; position: relative; overflow: hidden;
+  }
+  .arangetram-banner::before {
+    content: 'Arangetram';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 12vw, 11rem); font-weight: 300;
+    color: rgba(255,255,255,0.04); pointer-events: none; white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+  .arangetram-inner { max-width: 700px; margin: 0 auto; position: relative; }
+  .arangetram-script {
+    font-family: 'Dancing Script', cursive; font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700; color: var(--gold-light); margin-bottom: 0.5rem;
+  }
+  .arangetram-eyebrow {
+    font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 300;
+    letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+  }
+  .arangetram-body {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 300;
+    font-style: italic; color: rgba(255,255,255,0.75); line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ─── PHOTO GRID — 3-col tight ─── */
+  .photo-grid-3 {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem;
+    margin-top: 2rem;
+  }
+  .photo-grid-3 .photo-placeholder { margin-bottom: 0; }
+
+  /* ─── UPLOAD NOTICE ─── */
+  .upload-notice {
+    background: rgba(10,105,121,0.06);
+    border: 1px dashed rgba(10,105,121,0.25);
+    border-radius: 4px; padding: 1.5rem 2rem;
+    display: flex; align-items: center; gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  .upload-notice-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .upload-notice p { font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+  .upload-notice strong { color: var(--teal-deep); font-weight: 500; }
+
+  /* ─── CTA FOOTER ─── */
+  .gallery-cta {
+    background: var(--cream-warm); padding: 5rem 3rem; text-align: center;
+  }
+  .gallery-cta .section-title { margin: 0 auto 1rem; }
+  .gallery-cta .section-body { margin: 0 auto 2rem; }
+
+  /* ─── FOOTER ─── */
+  footer { background: #062f37; padding: 3rem; }
+  .footer-inner-mini {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-brand-name { font-family: 'Dancing Script', cursive; font-size: 1.8rem; font-weight: 700; color: var(--white); }
+  .footer-bottom p { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 300; color: rgba(255,255,255,0.3); }
+
+  /* ─── ANIMATIONS ─── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .filter-bar { padding: 0 1.5rem; }
+    .gallery-section { padding: 3.5rem 1.5rem; }
+    .masonry { columns: 2; }
+    .feature-slot, .feature-slot.reverse { grid-template-columns: 1fr; }
+    .feature-slot .feature-main { order: 1; }
+    .feature-slot .feature-info { order: 2; }
+    .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+  }
+  @media (max-width: 580px) {
+    .masonry { columns: 1; }
+    .photo-grid-3 { grid-template-columns: 1fr; }
+    .class-stats { flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* Mobile menu */
+  .mobile-menu { display: none; position: fixed; inset: 0; z-index: 90; background: var(--cream); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--charcoal); text-decoration: none; }
+  .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--charcoal); }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="20" width="28" height="10" rx="1" fill="#0A6979" opacity="0.9"/>
+      <rect x="6" y="14" width="20" height="7" rx="1" fill="#0A6979"/>
+      <rect x="10" y="9" width="12" height="6" rx="1" fill="#0A6979"/>
+      <rect x="13" y="5" width="6" height="5" rx="1" fill="#0A6979"/>
+      <rect x="15" y="1" width="2" height="5" rx="1" fill="#AEA68F"/>
+      <circle cx="16" cy="1" r="1.5" fill="#AEA68F"/>
+    </svg>
+    <div>
+      <span class="nav-logo-text">Nrithyalaya</span>
+      <span class="nav-logo-sub">Dance Temple</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#bharatanatyam">The Art</a></li>
+    <li><a href="index.html#benefits">Benefits</a></li>
+    <li><a href="index.html#teacher">Our Guru</a></li>
+    <li><a href="index.html#classes">Classes</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+  </ul>
+  <a href="index.html#enrol" class="nav-enrol">Enrol Now</a>
+  <div class="nav-toggle" onclick="document.getElementById('mobileMenu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="index.html#bharatanatyam" onclick="this.closest('.mobile-menu').classList.remove('open')">The Art</a>
+  <a href="index.html#benefits" onclick="this.closest('.mobile-menu').classList.remove('open')">Benefits</a>
+  <a href="index.html#teacher" onclick="this.closest('.mobile-menu').classList.remove('open')">Our Guru</a>
+  <a href="index.html#classes" onclick="this.closest('.mobile-menu').classList.remove('open')">Classes</a>
+  <a href="index.html#enrol" onclick="this.closest('.mobile-menu').classList.remove('open')">Enrol</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="gallery-hero">
+  <p class="gallery-hero-eyebrow">Nrithyalaya Dance Temple</p>
+  <h1 class="gallery-hero-title">The Art in <em>Motion</em></h1>
+  <p class="gallery-hero-sub">From first steps to full Arangetram — witness the beauty, dedication and transformation of our students.</p>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterSection('all', this)">All</button>
+    <button class="filter-tab" onclick="filterSection('guru', this)">Guru Sindhu</button>
+    <button class="filter-tab" onclick="filterSection('students', this)">Student Performances</button>
+    <button class="filter-tab" onclick="filterSection('arangetram', this)">Arangetram</button>
+    <button class="filter-tab" onclick="filterSection('classes', this)">In the Studio</button>
+    <button class="filter-tab" onclick="filterSection('events', this)">Events & Festivals</button>
+  </div>
+</div>
+
+<!-- ── GURU SINDHU ── -->
+<section class="gallery-section" data-category="guru">
+  <div class="container">
+    <p class="section-eyebrow reveal">The Guru</p>
+    <h2 class="section-title reveal reveal-delay-1">Sindhu — <em>Artist & Teacher</em></h2>
+    <p class="section-body reveal reveal-delay-2">
+      With 15 years of classical training and a Vidwat certification, Sindhu brings rare depth to every performance. 
+      Her mastery of the Pandanallur and Melattur styles is expressed through a lifetime of devotion to the art.
+    </p>
+
+    <!-- Feature photo + info -->
+    <div class="feature-slot reveal">
+      <div class="feature-main">
+        <!--
+          PHOTO INSTRUCTIONS:
+          Replace this placeholder with:
+          <img src="photos/sindhu-performance-1.jpg" alt="Sindhu performing Bharatanatyam" style="width:100%;height:100%;object-fit:cover;border-radius:6px;">
+        -->
+        <div class="photo-placeholder dark-variant" style="min-height:420px;">
+          <div class="placeholder-icon">💃</div>
+          <span class="placeholder-label">Sindhu — Solo Performance</span>
+          <span class="placeholder-sub">Add your featured performance photo here</span>
+          <span class="placeholder-add">+ Upload Photo</span>
+        </div>
+      </div>
+      <div class="feature-info">
+        <div class="feature-eyebrow">Vidwat Certified · Bharatanatyam</div>
+        <h3 class="feature-title">A performer of <em>rare grace and precision</em></h3>
+        <p class="feature-body">
+          Vidhushi Sindhu's performances weave together Nritta (pure dance), Nritya (expressive dance) 
+          and Natya (dramatic presentation) into a seamless and deeply moving experience. 
+          Trained under Guru Parvati Vidhyanathan in the Pandanallur bani, her artistry reflects the classical 
+          rigor and spiritual depth of South Indian classical tradition.
+        </p>
+      </div>
+    </div>
+
+    <!-- Masonry of Sindhu photos -->
+    <div class="masonry reveal">
+      <!-- Replace each photo-placeholder div with an img tag pointing to your photos -->
+      <div class="photo-placeholder" style="min-height:280px;">
+        <div class="placeholder-icon">🪷</div>
+        <span class="placeholder-label">Margam Performance</span>
+        <span class="placeholder-sub">Portrait · Vertical</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:360px;">
+        <div class="placeholder-icon">👁️</div>
+        <span class="placeholder-label">Abhinaya — Eye Expression</span>
+        <span class="placeholder-sub">Close-up · Vertical tall</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:240px;">
+        <div class="placeholder-icon">🤲</div>
+        <span class="placeholder-label">Mudra — Hand Gesture</span>
+        <span class="placeholder-sub">Detail · Square</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder" style="min-height:340px;">
+        <div class="placeholder-icon">🌸</div>
+        <span class="placeholder-label">Costume & Jewellery</span>
+        <span class="placeholder-sub">Portrait · Vertical</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:260px;">
+        <div class="placeholder-icon">🎭</div>
+        <span class="placeholder-label">Stage Performance</span>
+        <span class="placeholder-sub">Wide · Landscape</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:300px;">
+        <div class="placeholder-icon">✨</div>
+        <span class="placeholder-label">Festival Performance</span>
+        <span class="placeholder-sub">Landscape</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STUDENT PERFORMANCES ── -->
+<section class="gallery-section" data-category="students" style="background:var(--cream-warm);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Our Students</p>
+    <h2 class="section-title reveal reveal-delay-1">Every student<br><em>tells their own story</em></h2>
+    <p class="section-body reveal reveal-delay-2">
+      From tiny toddlers learning their first adavus to teenagers performing full Margams — 
+      every student at Nrithyalaya grows not just as a dancer, but as a confident, expressive individual.
+    </p>
+
+    <!-- Feature: Recital -->
+    <div class="feature-slot reverse reveal">
+      <div class="feature-main">
+        <div class="photo-placeholder" style="min-height:420px;">
+          <div class="placeholder-icon">🌟</div>
+          <span class="placeholder-label">Annual Recital — Group Performance</span>
+          <span class="placeholder-sub">Add your best recital photo here — wide/landscape recommended</span>
+          <span class="placeholder-add">+ Upload Photo</span>
+        </div>
+      </div>
+      <div class="feature-info">
+        <div class="feature-eyebrow">Annual Recital</div>
+        <h3 class="feature-title">Where months of <em>practice becomes magic</em></h3>
+        <p class="feature-body">
+          The Nrithyalaya annual recital is a celebration of each student's journey. 
+          Students of all levels come together to showcase their growth in front of family, 
+          friends and the community — a moment of pride for every dancer on stage.
+        </p>
+      </div>
+    </div>
+
+    <!-- Grid of student photos -->
+    <div class="masonry reveal">
+      <div class="photo-placeholder" style="min-height:300px;">
+        <div class="placeholder-icon">🎀</div>
+        <span class="placeholder-label">Young Beginners</span>
+        <span class="placeholder-sub">Ages 2–5 · First performance</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:260px;">
+        <div class="placeholder-icon">💫</div>
+        <span class="placeholder-label">Group Piece</span>
+        <span class="placeholder-sub">Ensemble · Wide format</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:350px;">
+        <div class="placeholder-icon">🌺</div>
+        <span class="placeholder-label">Intermediate Student Solo</span>
+        <span class="placeholder-sub">Stage · Portrait</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder" style="min-height:270px;">
+        <div class="placeholder-icon">🎶</div>
+        <span class="placeholder-label">Tillana Performance</span>
+        <span class="placeholder-sub">Action · Landscape</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:320px;">
+        <div class="placeholder-icon">🙌</div>
+        <span class="placeholder-label">Post-Performance — With Guru</span>
+        <span class="placeholder-sub">Candid · Group</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder" style="min-height:280px;">
+        <div class="placeholder-icon">👧</div>
+        <span class="placeholder-label">Teen Solo — Varnam</span>
+        <span class="placeholder-sub">Portrait · Stage</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:300px;">
+        <div class="placeholder-icon">🌙</div>
+        <span class="placeholder-label">Evening Recital</span>
+        <span class="placeholder-sub">Stage lights · Wide</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:260px;">
+        <div class="placeholder-icon">🎊</div>
+        <span class="placeholder-label">Community Festival</span>
+        <span class="placeholder-sub">Outdoor · Group</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder" style="min-height:340px;">
+        <div class="placeholder-icon">🪷</div>
+        <span class="placeholder-label">Costume Portraits</span>
+        <span class="placeholder-sub">Studio · Tall</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ARANGETRAM ── -->
+<div class="arangetram-banner" data-category="arangetram">
+  <div class="arangetram-inner">
+    <div class="arangetram-eyebrow reveal">The Graduation Debut</div>
+    <div class="arangetram-script reveal reveal-delay-1">Arangetram</div>
+    <p class="arangetram-body reveal reveal-delay-2">
+      The Arangetram — a student's first solo public performance — is one of the most sacred 
+      milestones in Bharatanatyam. Years of dedicated practice culminate in a full evening 
+      of dance, a rite of passage witnessed by the entire community.
+    </p>
+  </div>
+</div>
+
+<section class="gallery-section" data-category="arangetram">
+  <div class="container">
+    <p class="section-eyebrow reveal">Student Debuts</p>
+    <h2 class="section-title reveal reveal-delay-1">Years of devotion,<br><em>one unforgettable night</em></h2>
+    <p class="section-body reveal reveal-delay-2">
+      Each Arangetram is a deeply personal and emotionally charged occasion. We are so proud 
+      of every student who has taken this journey with Nrithyalaya.
+    </p>
+
+    <!-- Arangetram feature -->
+    <div class="feature-slot reveal">
+      <div class="feature-main">
+        <div class="photo-placeholder dark-variant" style="min-height:480px;">
+          <div class="placeholder-icon">👑</div>
+          <span class="placeholder-label">Arangetram — Feature Photo</span>
+          <span class="placeholder-sub">The most memorable shot from a student debut</span>
+          <span class="placeholder-add">+ Upload Photo</span>
+        </div>
+      </div>
+      <div class="feature-info">
+        <div class="feature-eyebrow">Arangetram · The Debut</div>
+        <h3 class="feature-title">A moment that<br><em>lasts a lifetime</em></h3>
+        <p class="feature-body">
+          The word Arangetram means "ascending the stage" in Tamil. After years of rigorous 
+          training — mastering adavus, mudras, abhinaya and full Margam compositions — the 
+          student presents a solo performance of 2–3 hours, demonstrating their complete mastery.
+          It is a celebration for the entire Nrithyalaya family.
+        </p>
+      </div>
+    </div>
+
+    <!-- Photo grid for Arangetram -->
+    <div class="photo-grid-3 reveal">
+      <div class="photo-placeholder" style="min-height:280px;">
+        <div class="placeholder-icon">🌹</div>
+        <span class="placeholder-label">Pre-show Moments</span>
+        <span class="placeholder-sub">Backstage candid</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:280px;">
+        <div class="placeholder-icon">🪷</div>
+        <span class="placeholder-label">Pushpanjali Opening</span>
+        <span class="placeholder-sub">Stage — opening number</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:280px;">
+        <div class="placeholder-icon">🎇</div>
+        <span class="placeholder-label">Tillana Finale</span>
+        <span class="placeholder-sub">Stage — closing number</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:280px;">
+        <div class="placeholder-icon">🌸</div>
+        <span class="placeholder-label">With Guru Sindhu</span>
+        <span class="placeholder-sub">Post-show portrait</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder" style="min-height:280px;">
+        <div class="placeholder-icon">💐</div>
+        <span class="placeholder-label">Family Celebration</span>
+        <span class="placeholder-sub">Group · Candid</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:280px;">
+        <div class="placeholder-icon">✨</div>
+        <span class="placeholder-label">Costume Portrait</span>
+        <span class="placeholder-sub">Studio · Pre-show</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IN THE STUDIO ── -->
+<section class="gallery-section" data-category="classes" style="background:var(--cream-warm);">
+  <div class="container">
+    <p class="section-eyebrow reveal">In the Studio</p>
+    <h2 class="section-title reveal reveal-delay-1">Where the<br><em>journey begins</em></h2>
+    <p class="section-body reveal reveal-delay-2">
+      The studio is where discipline becomes devotion. A glimpse into the everyday moments 
+      that build exceptional dancers.
+    </p>
+    <div class="masonry reveal">
+      <div class="photo-placeholder" style="min-height:260px;">
+        <div class="placeholder-icon">🏛️</div>
+        <span class="placeholder-label">Class in Progress</span>
+        <span class="placeholder-sub">Wide — studio view</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:320px;">
+        <div class="placeholder-icon">🧘</div>
+        <span class="placeholder-label">Araimundi Practice</span>
+        <span class="placeholder-sub">Action · Portrait</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:280px;">
+        <div class="placeholder-icon">👶</div>
+        <span class="placeholder-label">Toddler First Class</span>
+        <span class="placeholder-sub">Candid · Sweet moment</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder" style="min-height:300px;">
+        <div class="placeholder-icon">🎓</div>
+        <span class="placeholder-label">Guru Teaching Mudras</span>
+        <span class="placeholder-sub">Portrait · Studio</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:260px;">
+        <div class="placeholder-icon">🪘</div>
+        <span class="placeholder-label">Footwork Practice</span>
+        <span class="placeholder-sub">Detail · Action</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:340px;">
+        <div class="placeholder-icon">🌟</div>
+        <span class="placeholder-label">Student Progress Milestone</span>
+        <span class="placeholder-sub">Portrait · Studio</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTS & FESTIVALS ── -->
+<section class="gallery-section" data-category="events">
+  <div class="container">
+    <p class="section-eyebrow reveal">Community & Culture</p>
+    <h2 class="section-title reveal reveal-delay-1">Sharing the art<br><em>with the world</em></h2>
+    <p class="section-body reveal reveal-delay-2">
+      Nrithyalaya regularly performs at Indian cultural festivals, Diwali celebrations, 
+      multicultural events, and community stages across Sydney.
+    </p>
+    <div class="masonry reveal">
+      <div class="photo-placeholder" style="min-height:280px;">
+        <div class="placeholder-icon">🪔</div>
+        <span class="placeholder-label">Diwali Festival Performance</span>
+        <span class="placeholder-sub">Outdoor · Wide</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:350px;">
+        <div class="placeholder-icon">🇦🇺</div>
+        <span class="placeholder-label">Multicultural Event — Sydney</span>
+        <span class="placeholder-sub">Stage · Large audience</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:260px;">
+        <div class="placeholder-icon">🌏</div>
+        <span class="placeholder-label">Cultural Exchange</span>
+        <span class="placeholder-sub">Group · Celebration</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder" style="min-height:320px;">
+        <div class="placeholder-icon">🎆</div>
+        <span class="placeholder-label">Independence Day Event</span>
+        <span class="placeholder-sub">Stage · Colourful</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder dark-variant" style="min-height:280px;">
+        <div class="placeholder-icon">🏟️</div>
+        <span class="placeholder-label">Large Stage Performance</span>
+        <span class="placeholder-sub">Wide — audience view</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+      <div class="photo-placeholder gold-variant" style="min-height:300px;">
+        <div class="placeholder-icon">🙏</div>
+        <span class="placeholder-label">Temple Celebration</span>
+        <span class="placeholder-sub">Cultural · Devotional</span>
+        <span class="placeholder-add">+ Add Photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW TO ADD PHOTOS (developer note) ── -->
+<section style="padding:3rem; background:#062f37;">
+  <div class="container">
+    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:2rem;">
+      <p style="font-family:'Jost',sans-serif; font-size:0.7rem; font-weight:400; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:0.8rem;">📂 Developer Note — Replacing Placeholders with Real Photos</p>
+      <p style="font-family:'Jost',sans-serif; font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.8;">
+        Each <code style="color:var(--gold-light); background:rgba(255,255,255,0.06); padding:0.1rem 0.4rem; border-radius:2px;">.photo-placeholder</code> div is a slot for a real photo. 
+        To replace: upload photos to a <code style="color:var(--gold-light);">photos/</code> folder and swap the placeholder with 
+        <code style="color:var(--gold-light);">&lt;div class="masonry-item"&gt;&lt;img src="photos/your-image.jpg" alt="description"&gt;&lt;div class="overlay"&gt;...&lt;/div&gt;&lt;/div&gt;</code>.
+        The masonry layout adjusts automatically. Recommended: mix portrait and landscape images for a natural flow.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="gallery-cta">
+  <p class="section-eyebrow" style="justify-content:center;">Be Part of the Story</p>
+  <h2 class="section-title">Your child could be<br><em>on this stage</em></h2>
+  <p class="section-body" style="text-align:center; margin-left:auto; margin-right:auto;">
+    Every performer you see in this gallery began exactly where your child would — with curiosity, courage, and a first step.
+  </p>
+  <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+    <a href="index.html#enrol" style="font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); background:var(--teal-deep); padding:1rem 2.5rem; border-radius:2px; text-decoration:none;">Enrol Today</a>
+    <a href="index.html#classes" style="font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal-deep); border:1px solid var(--teal-deep); padding:1rem 2.5rem; border-radius:2px; text-decoration:none;">About Classes</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner-mini">
+    <div>
+      <div class="footer-brand-name">Nrithyalaya</div>
+      <p style="font-family:'Jost',sans-serif; font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-top:0.2rem;">Dance Temple</p>
+    </div>
+    <p style="font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:300; color:rgba(255,255,255,0.25);">© 2026 Nrithyalaya Dance Temple · nrithyalaya.com</p>
+  </div>
+</footer>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close">✕</button>
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => { e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); obs.unobserve(el.target); } }); }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+
+  // Filter tabs
+  function filterSection(cat, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('[data-category]').forEach(s => {
+      if (cat === 'all' || s.dataset.category === cat) {
+        s.style.display = '';
+      } else {
+        s.style.display = 'none';
+      }
+    });
+  }
+
+  // Lightbox for real photos (when added)
+  document.querySelectorAll('.masonry-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightboxCaption').textContent = img.alt;
+      document.getElementById('lightbox').classList.add('open');
+    });
+  });
+  function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
